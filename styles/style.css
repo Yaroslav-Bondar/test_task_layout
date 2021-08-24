@@ -100,11 +100,15 @@ body {
     /* width: 21px; */
     /* height: 19px; */
     animation-name: rotateWallet;
+    font-size: 19px;
+    color: #FFF;
 }
 .widget__icon-plus {
     /* width: 18px; */
     /* height: 18px; */
-    animation-name: rotatePlus; 
+    animation-name: rotatePlus;
+    font-size: 19px;
+    color: #FFF; 
 }
 /* wallet icon rotation */
 @keyframes rotateWallet {
