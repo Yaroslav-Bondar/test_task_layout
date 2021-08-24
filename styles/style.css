@@ -97,13 +97,13 @@ body {
     animation-direction: alternate;
 }
 .widget__icon-wallet {
-    /* width: 21px; */
-    /* height: 19px; */
+    width: 21px;
+    height: 19px;
     animation-name: rotateWallet;
 }
 .widget__icon-plus {
-    /* width: 18px; */
-    /* height: 18px; */
+    width: 18px;
+    height: 18px;
     animation-name: rotatePlus; 
 }
 /* wallet icon rotation */
