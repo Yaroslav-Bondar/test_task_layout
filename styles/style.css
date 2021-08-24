@@ -1,0 +1,180 @@
+* {
+    box-sizing: border-box;
+}
+body {
+    font-family: "Roboto Regular";
+}
+.widget {
+    width: 470px;
+    height: 503px;
+    margin: auto;
+    padding: 37px 34px;
+    background-color: #191C2A;
+}
+.widget__display {
+    position: relative;
+    width: 170px;
+    height: 40px;
+    background-color: #3C4057;
+    border-radius: 20px;
+    overflow: hidden;
+}
+.widget__currency {
+    display: flex;
+    align-items: flex-end;
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    padding-left: 19px;
+    color: #FFF;
+    transform: translate(-50%, -50%);
+}
+.widget__currency-item {
+    margin-right: 4px;
+    font-size: 18px;
+    line-height: 24px;
+}
+.widget__currency-country {
+    font-size: 14px;
+    line-height: 19px;
+    text-transform: uppercase;
+}
+.widget__button {
+    position: absolute;
+    right: 0;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #006CFF;
+    border: none;
+    cursor: pointer;
+}
+.widget__button::before {
+    content: '';
+    display: block;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #006CFF;
+    transition: .5s transform;
+}
+.widget__button::after {
+    content: 'DEPOSIT';
+    font-size: 17px;
+    line-height: 40px;
+    position: absolute;
+    right: -20px;
+    top: 0;
+    width: 40px;
+    height: 130px;
+    background-color: #006CFF;
+    transition-property: width, color; 
+    transition-duration: .5s, .4s;
+    transition-timing-function: ease, ease-out;
+    color: #006CFF;
+}
+.widget__display:hover .widget__button::before {
+    transform: translateX(-130px);
+}
+.widget__display:hover .widget__button::after {
+    width: 170px;
+    color: #FFF;
+}
+.widget__icon-plus,
+.widget__icon-wallet {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    animation-duration: 1.5s;
+    animation-timing-function: ease-in-out;  
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+.widget__icon-wallet {
+    animation-name: rotateWallet;
+}
+.widget__icon-plus {
+    animation-name: rotatePlus; 
+}
+/* wallet icon rotation */
+@keyframes rotateWallet {
+    25% { transform: translate(-50%, -50%) rotateY(0deg); opacity: 1}
+    45% { opacity: 1 }
+    75% { transform: translate(-50%, -50%) rotateY(180deg); opacity: 0; }
+    100% { transform: translate(-50%, -50%) rotateY(180deg); opacity: 0; }
+}
+/* plus icon rotation */
+@keyframes rotatePlus {
+    0% { opacity: 0; }
+    25% { transform: translate(-50%, -50%) rotateY(0deg); opacity: 0}
+    45% { opacity: 0 }
+    75% { transform: translate(-50%, -50%) rotateY(180deg); opacity: 1; }
+    100% { transform: translate(-50%, -50%) rotateY(180deg); opacity: 1; }
+}
+/* when hover the mouse over the .widget__display */
+/* plus icon movement */
+@keyframes translatePlusForward {
+    0% { opacity: 0; }
+    100% { transform: translateX(-120px) translateY(-50%) rotate(360deg); opacity: 1; }
+}
+/* wallet icon movement */
+@keyframes translateWalletForward {
+    0% { opacity: 1; }
+    100% { transform: translateX(-120px) translateY(-50%) rotate(360deg); opacity: 0; }
+}
+/* // when hover the mouse over the .widget__display */
+
+/* when the mouse leaves the .widget__display area */
+/* plus icon movement */
+@keyframes translatePlusBack {
+    0% { transform: translateX(-120px) translateY(-50%) rotate(360deg); opacity: 1; }
+    100% { transform: translateX(-50%) translateY(-50%) rotate(-360deg); opacity: 0; }
+}
+/* wallet icon movement */
+@keyframes translateWalletBack {
+    0% { transform: translateX(-120px) translateY(-50%) rotate(360deg); opacity: 0; }
+    100% { transform: translateX(-50%px) translateY(-50%) rotate(-360deg); opacity: 1; }
+}
+/* // when the mouse leaves the .widget__display area */
+
+/* when hover the mouse over the .widget__display */
+.widget__icon-plus_translate-forward {
+    animation-name: translatePlusForward;
+    animation-duration: .5s;
+    animation-timing-function: ease;
+    animation-iteration-count: initial;
+    animation-fill-mode: forwards;
+}
+.widget__icon-wallet_translate-forward {
+    animation-name: translateWalletForward;
+    animation-duration: .5s;
+    animation-timing-function: ease;
+    animation-iteration-count: initial;
+    animation-fill-mode: forwards;
+}
+/*  // when hover the mouse over the .widget__display */
+
+/* when the mouse leaves the .widget__display area */
+.widget__icon-plus_translate-back {
+    animation-name: translatePlusBack;
+    animation-duration: .5s;
+    animation-timing-function: ease;
+    animation-iteration-count: initial;
+    animation-fill-mode: forwards;
+}
+
+.widget__icon-wallet_translate-back {
+    animation-name: translateWalletBack;
+    animation-duration: .5s;
+    animation-timing-function: ease;
+    animation-iteration-count: initial;
+    animation-fill-mode: forwards;
+}
+/* // when the mouse leaves the .widget__display area */
+
