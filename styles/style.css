@@ -18,6 +18,7 @@ body {
     background-color: #3C4057;
     border-radius: 20px;
     overflow: hidden;
+    cursor: pointer;
 }
 .widget__currency {
     display: flex;
@@ -63,18 +64,14 @@ body {
     transition: .5s transform;
 }
 .widget__button::after {
-    content: 'DEPOSIT';
-    font-size: 17px;
-    line-height: 40px;
+    content: '';
     position: absolute;
     right: -20px;
     top: 0;
     width: 40px;
     height: 130px;
     background-color: #006CFF;
-    transition-property: width, color; 
-    transition-duration: .5s, .4s;
-    transition-timing-function: ease, ease-out;
+    transition: width ease .5s;
     color: #006CFF;
 }
 .widget__display:hover .widget__button::before {
@@ -82,14 +79,20 @@ body {
 }
 .widget__display:hover .widget__button::after {
     width: 170px;
-    color: #FFF;
+}
+.widget__icon-plus {
+    animation-name: rotatePlus;
 }
 .widget__icon-plus,
-.widget__icon-wallet {
+.widget__icon-wallet,
+.widget__text {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+}
+.widget__icon-plus,
+.widget__icon-wallet {
     z-index: 1;
     animation-duration: 1.5s;
     animation-timing-function: ease-in-out;  
@@ -97,18 +100,21 @@ body {
     animation-direction: alternate;
 }
 .widget__icon-wallet {
-    /* width: 21px; */
-    /* height: 19px; */
     animation-name: rotateWallet;
-    font-size: 19px;
-    color: #FFF;
 }
-.widget__icon-plus {
-    /* width: 18px; */
-    /* height: 18px; */
-    animation-name: rotatePlus;
-    font-size: 19px;
-    color: #FFF; 
+.widget__text {
+    left: 70%;
+    font-size: 17px;
+    line-height: 40px;
+    color: #FFF;
+    opacity: 0;
+    transition-property: transform, opacity;
+    transition-duration: .3s, .3s;
+    transition-timing-function: linear;
+}
+.widget__display:hover .widget__text {
+    transform: translate(-53px, -50%);
+    opacity: 1;
 }
 /* wallet icon rotation */
 @keyframes rotateWallet {
